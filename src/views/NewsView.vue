@@ -6,7 +6,12 @@
     <button type="button" @click="add">추가</button>
     <ul v-if="news.length > 0">
       <li v-for="item in news" :key="item.id">
-        <span class="bold">{{ item.title }}</span> -> {{ item.user }}
+        <span class="bold">
+          <router-link :to="`item/${item.id}`">
+            {{ item.title }}
+          </router-link>
+        </span>
+        -> {{ item.user }}
       </li>
     </ul>
     <div v-else class="red">Loading...</div>

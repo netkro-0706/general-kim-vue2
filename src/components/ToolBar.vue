@@ -1,7 +1,8 @@
 <template>
   <div>
     <img src="../assets/logo.png" />
-    <router-link to="/news">News</router-link>
+    <router-link to="/news">News</router-link> ||
+    <router-link to="/ask">Ask</router-link>
   </div>
 </template>
 

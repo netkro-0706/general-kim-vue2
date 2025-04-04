@@ -4,8 +4,7 @@
     <button @click="fetchAsk">ASK load</button>
     <ul v-if="ask.length > 0">
       <li v-for="item in ask" :key="item.id">
-        {{ item.title }} -> {{ item.user }}
-        <button @click="deleteAsk(item.id)">Delete</button>
+        <update-form :item="item" />
       </li>
     </ul>
     <div v-else class="loading">Please click ASK load button</div>
@@ -13,7 +12,16 @@
 </template>
 
 <script>
+import UpdateForm from "../components/UpdateForm.vue"
+
 export default {
+  components: { UpdateForm: UpdateForm },
+  data() {
+    return {
+      isUpdate: false,
+      updateValue: null,
+    }
+  },
   computed: {
     ask() {
       return this.$store.state.ask
@@ -22,10 +30,6 @@ export default {
   methods: {
     fetchAsk() {
       this.$store.dispatch("FETCH_ASK")
-    },
-    deleteAsk(id) {
-      console.log(id)
-      this.$store.commit("DELETE_ASK", id)
     },
   },
 }

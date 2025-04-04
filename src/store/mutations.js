@@ -17,4 +17,8 @@ export default {
     console.log("target", index)
     state.ask.splice(index, 1)
   },
+  UPDATE_ASK(state, data) {
+    let index = state.ask.findIndex((v) => v.id === data.id)
+    state.ask[index].title = data.title
+  },
 }

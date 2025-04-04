@@ -12,4 +12,9 @@ export default {
   SET_ASK(state, ask) {
     state.ask = ask
   },
+  DELETE_ASK(state, id) {
+    let index = state.ask.findIndex((v) => v.id === id)
+    console.log("target", index)
+    state.ask.splice(index, 1)
+  },
 }
